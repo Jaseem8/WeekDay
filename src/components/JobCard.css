@@ -1,6 +1,6 @@
 .job-card {
-  border-radius: 40px;
-  box-shadow: rgba(239, 11, 11, 0.25) 0px 1px 4px 0px;
+  border-radius: 30px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 1px 4px 0px;
 
   display: flex !important;
   flex-wrap: wrap;
@@ -20,7 +20,8 @@
   box-shadow: rgba(6, 6, 6, 0.05) 0px 2px 6px 0px;
   border-radius: 15px;
   width: fit-content;
-  align-self: baseline;
+  justify-content: center;
+  align-items: center;
   max-width: 40%;
   border: 1px solid rgb(230, 230, 230);
   font-size: 55%;
@@ -29,44 +30,69 @@
   max-width: 15px;
 }
 .paraPosted {
-  margin: 0px;
+  margin: 1px;
   font-family: "Courier New", Courier, monospace;
-
-  line-height: 1.1;
   text-align: left;
 }
 
 .title-wrapper {
-  margin: 0px;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: 15% 80%; /* Two columns with equal width */
+  gap: 20px;
 }
 .job-card-media {
-  width: 25px;
+  display: inline-block;
+  width: 100%;
   border-radius: 5px;
   aspect-ratio: 0.8;
 }
 .titleContent-wrapper {
   display: flex;
+
   flex-direction: column;
   flex-wrap: wrap;
 }
 .job-card-title {
-  display: inline;
-  font-size: 1.2rem;
-  font-weight: bold;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 3px;
+  color: #8b8b8b;
 }
 
-.job-card-details {
-  margin-top: 8px;
+.job-card-details-role {
+  font-size: 14px;
+  line-height: 1.5;
 }
-
+.job-card-details-location {
+  font-size: 11px;
+  font-weight: 500;
+  margin-top: 5px;
+}
+.job-card-details-experience {
+  font-size: 14px;
+  line-height: 1.5;
+}
+.job-card-details-salary {
+  font-weight: 400;
+}
 .job-card-description {
   margin-top: 8px;
   font-size: 0.9rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 12; /* number of lines to show */
+  line-clamp: 12;
+  -webkit-box-orient: vertical;
 }
+.job-card-description p {
+  margin: 0px;
 
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: 400;
+}
 .job-card-experience {
   margin-top: 8px;
   font-size: 0.9rem;
@@ -74,5 +100,24 @@
 }
 
 .job-card-apply-button {
-  margin-top: 16px;
+  color: #4943da;
+  font-size: 12px;
+  top: -10px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  background-image: linear-gradient(
+    to bottom right,
+    rgb(255, 255, 255),
+    rgba(255, 244, 244, 0)
+  );
+  backdrop-filter: blur(1px);
+}
+
+.exp1 {
+  margin-bottom: 3px;
+}
+
+.exp2 {
+  margin: 0px;
 }

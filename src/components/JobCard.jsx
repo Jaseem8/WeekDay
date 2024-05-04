@@ -2,7 +2,7 @@ import React from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
-import Typography from "@mui/material/Typography";
+
 import Button from "@mui/material/Button";
 import "./JobCard.css"; // Import your CSS file for styling
 import HourglassBottomIcon from "@mui/icons-material/HourglassBottom";
@@ -23,66 +23,37 @@ export default function JobCard({ job }) {
   } = job;
 
   return (
-    <Card className="job-card">
+    <div className="job-card">
       <div className="posted">
         <HourglassBottomIcon className="icon" />
-        <p classname="paraPosted">Posted 16 days ago</p>
+        <p className="paraPosted">Posted 16 days ago</p>
       </div>
-      <div classname="title-wrapper">
+      <div className="title-wrapper">
         <img
           className="job-card-media"
           component="img"
           src={logoUrl}
           alt={companyName}
         />
-        <div classname="titleContent-wrapper">
-          <Typography
-            className="job-card-title"
-            gutterBottom
-            variant="h7"
-            component="div"
-          >
-            {companyName}
-          </Typography>
-          <Typography
-            className="job-card-details"
-            variant="subtitle1"
-            color="text.secondary"
-          >
-            Job Role: {jobRole}
-          </Typography>
-          <Typography
-            className="job-card-details"
-            variant="subtitle1"
-            color="text.secondary"
-          >
-            Location: {location}
-          </Typography>
+        <div className="titleContent-wrapper">
+          <div className="job-card-title">{companyName}</div>
+          <div className="job-card-details-role"> {jobRole} Developer</div>
+          <div className="job-card-details-location"> {location}</div>
 
-          <Typography
-            className="job-card-details"
-            variant="subtitle1"
-            color="text.secondary"
-          >
+          <div className="job-card-details-experience">
             Experience: {minExp} - {maxExp} years
-          </Typography>
+          </div>
         </div>
       </div>
-      <Typography
-        className="job-card-details"
-        variant="subtitle1"
-        color="text.secondary"
-      >
-        Salary: {minJdSalary ? `${minJdSalary} - ` : ""}
+      <div className="job-card-details-salary">
+        Estimated Salary: {minJdSalary ? `${minJdSalary} - ` : ""}
         {maxJdSalary} {salaryCurrencyCode}
-      </Typography>
-      <Typography
-        className="job-card-description"
-        variant="body2"
-        color="text.secondary"
-      >
+      </div>
+      <div className="job-card-description">
+        <p> About Company:</p>
+        <p>About US</p>
         {jobDetailsFromCompany}
-      </Typography>
+      </div>
       <Button
         className="job-card-apply-button"
         size="small"
@@ -90,15 +61,10 @@ export default function JobCard({ job }) {
         href={jdLink}
         target="_blank"
       >
-        Apply Now
+        View Job
       </Button>
-      <Typography
-        className="job-card-details"
-        variant="body2"
-        color="text.secondary"
-      >
-        Job ID: {jdUid}
-      </Typography>
-    </Card>
+      {minExp > 0 && <p className="exp1">Minimum Experience</p>}
+      {minExp > 0 && <p className="exp2">{minExp}</p>}
+    </div>
   );
 }

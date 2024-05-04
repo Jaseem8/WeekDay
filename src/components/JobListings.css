@@ -7,18 +7,14 @@
   flex-direction: row;
   gap: 1.5%;
   padding: 0;
-  border-radius: 1px;
-  box-shadow: rgba(93, 0, 242, 0.25) 0px 1px 4px 0px;
 }
 
 .job-card-wrapper {
   min-width: 200px;
-  width: 20vw;
-  margin: 1.1vh 1vw;
+  width: 21%;
+  margin: 1.1vh 1.5vw;
 
   transition: cubic-bezier(0.23, 1, 0.32, 1);
-  border-radius: 40px;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 1px 4px 0px;
 }
 .job-card-wrapper :hover {
   transform-origin: 50%;
