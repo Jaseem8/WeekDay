@@ -1,0 +1,78 @@
+.job-card {
+  border-radius: 40px;
+  box-shadow: rgba(239, 11, 11, 0.25) 0px 1px 4px 0px;
+
+  display: flex !important;
+  flex-wrap: wrap;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+
+  width: 100%;
+  min-width: 150px;
+
+  padding: 20px;
+}
+
+.posted {
+  display: flex;
+  flex-direction: row;
+
+  box-shadow: rgba(6, 6, 6, 0.05) 0px 2px 6px 0px;
+  border-radius: 15px;
+  width: fit-content;
+  align-self: baseline;
+  max-width: 40%;
+  border: 1px solid rgb(230, 230, 230);
+  font-size: 55%;
+}
+.icon {
+  max-width: 15px;
+}
+.paraPosted {
+  margin: 0px;
+  font-family: "Courier New", Courier, monospace;
+
+  line-height: 1.1;
+  text-align: left;
+}
+
+.title-wrapper {
+  margin: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+.job-card-media {
+  width: 25px;
+  border-radius: 5px;
+  aspect-ratio: 0.8;
+}
+.titleContent-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.job-card-title {
+  display: inline;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.job-card-details {
+  margin-top: 8px;
+}
+
+.job-card-description {
+  margin-top: 8px;
+  font-size: 0.9rem;
+}
+
+.job-card-experience {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.job-card-apply-button {
+  margin-top: 16px;
+}
