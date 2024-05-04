@@ -1,11 +1,11 @@
 import "./App.css";
-import Filter from "./components/Filter";
+import FilterComponent from "./components/Filter";
 
 function App() {
   return (
-    <>
-      <Filter />
-    </>
+    <div className="wrapper">
+      <FilterComponent />
+    </div>
   );
 }
 
