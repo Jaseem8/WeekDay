@@ -10,6 +10,7 @@ import {
   employeesData,
   baseSalaryData,
   remoteOptionsData,
+  techStackData,
 } from "./filterData"; // Importing data from filterData.js
 import FilterModule from "./FilterModule";
 import "./Filter.css";
@@ -21,14 +22,21 @@ const FilterComponent = () => {
   const [selectedBaseSalary, setSelectedBaseSalary] = useState(baseSalaryData);
   const [selectedRemoteOption, setSelectedRemoteOption] =
     useState(remoteOptionsData);
+  const [selectedTech, setSelectedTech] = useState(techStackData);
+
   const [companyName, setCompanyName] = useState("");
 
   return (
-    <div className="filter-wrapper">
+    <div className="overall-filter-wrapper">
       <FilterModule
         state={selectedRole}
         setState={setSelectedRole}
         title={"Roles"}
+      />{" "}
+      <FilterModule
+        state={selectedEmployees}
+        setState={setSelectedEmployees}
+        title={"Number of Employees"}
       />
       <FilterModule
         state={selectedExperience}
@@ -36,21 +44,20 @@ const FilterComponent = () => {
         title={"Experience"}
       />
       <FilterModule
-        state={selectedEmployees}
-        setState={setSelectedEmployees}
-        title={"Number of Employees"}
+        state={selectedRemoteOption}
+        setState={setSelectedRemoteOption}
+        title={"Remote"}
+      />
+      <FilterModule
+        state={selectedTech}
+        setState={setSelectedTech}
+        title={"Tech Stack"}
       />
       <FilterModule
         state={selectedBaseSalary}
         setState={setSelectedBaseSalary}
         title={"Amount Of Base Salary"}
       />
-      <FilterModule
-        state={selectedRemoteOption}
-        setState={setSelectedRemoteOption}
-        title={"Remote"}
-      />
-
       <FormControl sx={{ m: 1, width: 300 }}>
         <TextField
           id="company-name"

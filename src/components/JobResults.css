@@ -1,0 +1,46 @@
+.job-listings-container {
+  display: flex;
+  width: 95%;
+  align-self: center;
+  flex-wrap: wrap;
+  gap: 1%;
+  padding: 0;
+  border: 2px solid pink;
+  justify-content: space-evenly; /* Default value */
+  flex-direction: row; /* Default value */
+}
+
+.job-card-wrapper {
+  width: 21%;
+  min-width: 200px;
+  margin: 1.1vh 1.5vw;
+  padding: 0;
+  border: 2px solid red;
+  align-content: center;
+  transition: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.job-card-wrapper:hover {
+  transform-origin: 50%;
+  transform: scale(1.01);
+}
+
+@media only screen and (max-width: 600px) {
+  .job-listings-container {
+    justify-content: center;
+  }
+
+  .job-card-wrapper {
+    width: fit-content;
+  }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 1200px) {
+  .job-listings-container {
+    justify-content: space-evenly;
+  }
+
+  .job-card-wrapper {
+    width: 40%;
+  }
+}

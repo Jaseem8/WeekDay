@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import fetchData from "./fetchData"; // Import your fetchData function
 import JobCard from "./JobCard"; // Import your JobCard component
-import "./JobListings.css"; // Import your CSS file for styling
+import "./JobResults.css"; // Import your CSS file for styling
 
 export default function JobListings() {
   const [data, setData] = useState([]);

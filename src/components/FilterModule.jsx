@@ -48,7 +48,13 @@ export default function FilterModule({ state, setState, title }) {
   };
 
   return (
-    <FormControl sx={{ m: 1, minWidth: "15%" }} ref={formControlRef}>
+    <FormControl
+      sx={{
+        m: 0.5,
+        minWidth: "10%",
+      }}
+      ref={formControlRef}
+    >
       <TextField
         id={`${title}`}
         select
@@ -62,7 +68,7 @@ export default function FilterModule({ state, setState, title }) {
             .map((role) => role.value),
           onChange: (event, element) => handleSelectToggle(event, element),
           renderValue: (selected) => (
-            <div className="wrapper">
+            <div className="filter-wrapper">
               <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
                 {selected.map((value) => {
                   const role = state.find((role) => role.value === value);
