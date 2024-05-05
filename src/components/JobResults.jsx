@@ -2,7 +2,9 @@ import React, { useEffect, useState } from "react";
 import fetchData from "./fetchData"; // Import your fetchData function
 import JobCard from "./JobCard"; // Import your JobCard component
 import "./JobResults.css"; // Import your CSS file for styling
+import Loader from "./Loader";
 
+import Box from "@mui/material/Box";
 export default function JobListings() {
   const [data, setData] = useState([]);
   const [page, setPage] = useState(0);
@@ -69,9 +71,9 @@ export default function JobListings() {
           </div>
         ))
       ) : (
-        <div>No job listings available</div>
+        <div className="no-job-listings">No job listings available</div>
       )}
-      {loading && <div>Loading...</div>}
+      {loading && <Loader />}
       {error && <div>Error fetching data: {error.message}</div>}
     </div>
   );

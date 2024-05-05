@@ -2,7 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   width: 90%;
-  border: 2px solid yellow;
+  /* border: 2px solid yellow; */
   justify-content: space-between; /* Default value */
   flex-direction: row; /* Default value */
 }

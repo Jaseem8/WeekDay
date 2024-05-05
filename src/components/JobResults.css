@@ -5,8 +5,9 @@
   flex-wrap: wrap;
   gap: 1%;
   padding: 0;
-  border: 2px solid pink;
+  /* border: 2px solid pink; */
   justify-content: space-evenly; /* Default value */
+  align-items: center;
   flex-direction: row; /* Default value */
 }
 
@@ -15,7 +16,7 @@
   min-width: 200px;
   margin: 1.1vh 1.5vw;
   padding: 0;
-  border: 2px solid red;
+  /* border: 2px solid red; */
   align-content: center;
   transition: cubic-bezier(0.23, 1, 0.32, 1);
 }
@@ -23,6 +24,19 @@
 .job-card-wrapper:hover {
   transform-origin: 50%;
   transform: scale(1.01);
+}
+.no-job-listings {
+  font-size: 18px;
+  align-self: flex-start;
+  color: #666;
+  text-align: center;
+  padding: 20px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  max-width: 250px;
+  max-height: 70px;
+  background-color: #f9f9f9;
+  margin: 20px auto;
 }
 
 @media only screen and (max-width: 600px) {

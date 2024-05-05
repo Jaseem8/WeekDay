@@ -5,13 +5,12 @@
   align-items: center;
   margin: 20px;
   padding: 20px;
-  border: 1px solid rgb(0, 255, 51);
+  /* border: 1px solid rgb(0, 255, 51); */
   width: 93%;
 }
 
 @media only screen and (max-width: 600px) {
   .main-wrapper {
     margin: 5px;
-    border-color: rgb(49, 224, 0);
   }
 }
