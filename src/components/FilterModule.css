@@ -1,0 +1,32 @@
+.cancelIcon :hover {
+  background-color: red !important;
+  color: brown !important;
+  fill: blue;
+}
+.vertical {
+  border-left: 6px solid blue;
+  height: 100px;
+}
+
+.wrapper {
+  display: flex;
+  margin: 0px;
+  padding: 0px;
+  flex-wrap: wrap;
+  flex-direction: row;
+  border: 0px;
+  width: 100%;
+}
+
+.cancel-icon1:hover {
+  stroke: rgb(107, 34, 34);
+  background-color: red;
+  fill: red;
+}
+.cancel-icon2 {
+  margin-left: 15px;
+  right: 0;
+}
+.cancel-icon2:hover {
+  stroke: rgb(154, 29, 29);
+}

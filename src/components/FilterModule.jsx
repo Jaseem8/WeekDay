@@ -1,15 +1,11 @@
-import {
-  Box,
-  Chip,
-  FormControl,
-  InputLabel,
-  MenuItem,
-  Select,
-} from "@mui/material";
-import React from "react";
-import CancelIcon from "@mui/icons-material/Cancel";
-const ITEM_HEIGHT = 48;
-const ITEM_PADDING_TOP = 8;
+import { Box, Chip, FormControl, MenuItem } from "@mui/material";
+import TextField from "@mui/material/TextField";
+import React, { useRef, useState } from "react";
+
+import "./FilterModule.css";
+import { CancelSVGIcon1, CancelSVGIcon2 } from "../icons/icons";
+const ITEM_HEIGHT = 20;
+const ITEM_PADDING_TOP = 48;
 const MenuProps = {
   PaperProps: {
     style: {
@@ -18,7 +14,10 @@ const MenuProps = {
     },
   },
 };
+
 export default function FilterModule({ state, setState, title }) {
+  const formControlRef = useRef(null);
+  const textRef = useRef(null);
   const handleSelectToggle = (event, element) => {
     const selection = element.props.value; // selected item
 
@@ -28,6 +27,8 @@ export default function FilterModule({ state, setState, title }) {
     );
 
     setState(updatedSelectedRoles);
+    formControlRef.current.focus();
+    textRef.current.blur(); // Close the dropdown after selection
   };
 
   const handleDelete = (value) => {
@@ -37,35 +38,63 @@ export default function FilterModule({ state, setState, title }) {
       )
     );
   };
+  const clearAll = () => {
+    setState((prevSelected) =>
+      prevSelected.map((role) => ({
+        ...role,
+        isSelected: false,
+      }))
+    );
+  };
 
   return (
-    <FormControl sx={{ m: 1, width: 300 }}>
-      <InputLabel id="role-label">{title}</InputLabel>
-      <Select
-        labelId="role-label"
-        id="role-select"
-        multiple
-        value={state}
-        onChange={(event, element) => handleSelectToggle(event, element)}
-        renderValue={(selected) => (
-          <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
-            {selected
-              .filter((role) => role.isSelected)
-              .map((role) => (
-                <Chip
-                  key={role.value}
-                  label={role.label}
-                  onDelete={() => handleDelete(role.value)}
-                  deleteIcon={
-                    <CancelIcon
-                      onMouseDown={(event) => event.stopPropagation()}
+    <FormControl sx={{ m: 1, minWidth: "15%" }} ref={formControlRef}>
+      <TextField
+        id={`${title}`}
+        select
+        ref={textRef}
+        label={`${title}`}
+        variant="outlined"
+        SelectProps={{
+          multiple: true,
+          value: state
+            .filter((role) => role.isSelected)
+            .map((role) => role.value),
+          onChange: (event, element) => handleSelectToggle(event, element),
+          renderValue: (selected) => (
+            <div className="wrapper">
+              <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
+                {selected.map((value) => {
+                  const role = state.find((role) => role.value === value);
+                  return (
+                    <Chip
+                      key={value}
+                      label={role.label}
+                      onDelete={() => handleDelete(value)} // Corrected onDelete
+                      deleteIcon={
+                        <CancelSVGIcon1
+                          onMouseDown={(event) => {
+                            event.stopPropagation();
+                            return handleDelete(value);
+                          }}
+                          className="cancel-icon1"
+                        />
+                      }
                     />
-                  }
-                />
-              ))}
-          </Box>
-        )}
-        MenuProps={MenuProps}
+                  );
+                })}
+              </Box>
+              <CancelSVGIcon2
+                onMouseDown={(event) => {
+                  event.stopPropagation();
+                  return clearAll();
+                }}
+                className="cancel-icon2" // Add className
+              />
+            </div>
+          ),
+          MenuProps: MenuProps,
+        }}
       >
         {state
           .filter((role) => !role.isSelected)
@@ -74,7 +103,7 @@ export default function FilterModule({ state, setState, title }) {
               {role.label}
             </MenuItem>
           ))}
-      </Select>
+      </TextField>
     </FormControl>
   );
 }

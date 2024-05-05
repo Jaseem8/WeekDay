@@ -1,12 +1,7 @@
 import React, { useState } from "react";
 import { useTheme } from "@mui/material/styles";
-import Box from "@mui/material/Box";
-import OutlinedInput from "@mui/material/OutlinedInput";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
+
 import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
-import Chip from "@mui/material/Chip";
 
 import { TextField } from "@mui/material";
 import {
@@ -17,7 +12,7 @@ import {
   remoteOptionsData,
 } from "./filterData"; // Importing data from filterData.js
 import FilterModule from "./FilterModule";
-
+import "./Filter.css";
 const FilterComponent = () => {
   const theme = useTheme();
   const [selectedRole, setSelectedRole] = useState(rolesData);
@@ -29,7 +24,7 @@ const FilterComponent = () => {
   const [companyName, setCompanyName] = useState("");
 
   return (
-    <div>
+    <div className="filter-wrapper">
       <FilterModule
         state={selectedRole}
         setState={setSelectedRole}

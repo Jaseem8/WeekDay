@@ -1,0 +1,8 @@
+.filter-wrapper {
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  flex-wrap: wrap;
+  align-self: center;
+  justify-content: space-between;
+}
