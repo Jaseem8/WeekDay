@@ -1,11 +1,18 @@
+import React, { useRef } from "react";
 import { Box, Chip, FormControl, MenuItem } from "@mui/material";
 import TextField from "@mui/material/TextField";
-import React, { useRef, useState } from "react";
 
-import "./FilterModule.css";
+// Importing custom SVG icons
 import { CancelSVGIcon1, CancelSVGIcon2 } from "../icons/icons";
+
+// Importing CSS styles
+import "./FilterModule.css";
+
+// Constants for menu height and padding
 const ITEM_HEIGHT = 20;
 const ITEM_PADDING_TOP = 48;
+
+// Menu props for Material-UI Select component
 const MenuProps = {
   PaperProps: {
     style: {
@@ -15,9 +22,13 @@ const MenuProps = {
   },
 };
 
+// Component for individual filter modules
 export default function FilterModule({ state, setState, title }) {
+  // Refs for FormControl and TextField
   const formControlRef = useRef(null);
   const textRef = useRef(null);
+
+  // Handler for selecting/deselecting items
   const handleSelectToggle = (event, element) => {
     const selection = element.props.value; // selected item
 
@@ -31,6 +42,7 @@ export default function FilterModule({ state, setState, title }) {
     textRef.current.blur(); // Close the dropdown after selection
   };
 
+  // Handler for deleting a selected item
   const handleDelete = (value) => {
     setState((prevSelected) =>
       prevSelected.map((role) =>
@@ -38,6 +50,8 @@ export default function FilterModule({ state, setState, title }) {
       )
     );
   };
+
+  // Handler for clearing all selected items
   const clearAll = () => {
     setState((prevSelected) =>
       prevSelected.map((role) => ({
