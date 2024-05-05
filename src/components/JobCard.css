@@ -121,3 +121,17 @@
 .exp2 {
   margin: 0px;
 }
+
+.easy {
+  width: 100%;
+  background-color: rgb(85, 239, 196);
+  color: rgb(0, 0, 0);
+  font-weight: 500;
+  padding: 8px 18px;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 1px 4px 0px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-stretch: extra-expanded;
+  font-weight: 600;
+  font-size: larger;
+}

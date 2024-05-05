@@ -65,6 +65,7 @@ export default function JobCard({ job }) {
       </Button>
       {minExp > 0 && <p className="exp1">Minimum Experience</p>}
       {minExp > 0 && <p className="exp2">{minExp}</p>}
+      <button className="easy">⚡ Easy Apply</button>
     </div>
   );
 }

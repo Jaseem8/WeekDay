@@ -1,9 +1,11 @@
-export default async function fetchData() {
+export default async function fetchData(page) {
   const myHeaders = new Headers();
+  let offset = 0;
+  offset = offset + page * 9;
   myHeaders.append("Content-Type", "application/json");
   const body = JSON.stringify({
-    limit: 10,
-    offset: 0,
+    limit: 9,
+    offset,
   });
 
   const requestOptions = {

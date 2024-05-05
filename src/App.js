@@ -4,7 +4,7 @@ import JobResults from "./components/JobResults";
 
 function App() {
   return (
-    <div className="wrapper">
+    <div className="main-wrapper">
       <FilterComponent />
       <JobResults />
     </div>
